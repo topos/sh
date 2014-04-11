@@ -1,0 +1,2 @@
+export PATH=~/bin:~/.cabal/bin:/opt/ghc/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export MANPATH=/opt/ghc/bin:/usr/local/man:/usr/share/man

@@ -1,0 +1,28 @@
+[ -n "$TERM" ] || export TERM=xterm
+
+export PATH=~/bin:~/Library/Haskell/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/bin:/usr/bin:/usr/bin:/usr/sbin:/sbin
+
+stty intr  '^C' erase '^?'
+stty eof   '^D'             # CTRL-D end-of-file
+stty susp  '^Z'             # CRTL-Z suspend a job
+stty intr  '^C'             # CTRL-C interrupt a job
+stty start '^Q'             # CTRL-Q start scrolling
+stty stop  '^S'             # CTRL-S stop scrolling
+stty kill  '^U'             # CTRL-U kill line buffer
+#stty erase '^H'             # DEL key to erase
+
+#if ! echo "$-" | grep >/dev/null i; then return; fi
+
+eval `tset -sQ`
+
+# MacPorts Installer addition on 2012-10-14_at_00:28:24: adding an appropriate PATH variable for use with MacPorts.
+#export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Tools:/Applications/Xcode.app/Contents/MacOS:$PATH
+#export LIBRARY=/opt/local/lib
+#export CPATH=/opt/local/include
+#export LD_LIBRRY_PATH=/opt/local/lib
+
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+. ~/.bashrc
+
+cd

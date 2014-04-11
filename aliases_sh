@@ -1,0 +1,52 @@
+alias ls='ls -G --color=auto'
+alias l=ls
+alias ll='ls -l'
+alias ltr='ls -ltr'
+alias rm='rm -i'
+alias mv='mv -i'
+alias pwd='echo $PWD'
+#alias rme='rm -f *.~*~ *~'
+alias rme="find ./ -type f \( -name \*~ -o -name \*.~[0-9]~ -o -name '#*#' -o -name semantic.cache \) | xargs rm -f"
+
+alias s=sudo
+#alias r=rake
+alias br='bundle exec rake'
+alias brs='bundle exec rspec'
+alias b=buildr
+alias pp=popd
+alias pd=pushd
+alias less='less -R'
+
+alias gita='git add'
+alias gitb='git branch'
+alias gitc='git commit -m'
+alias gits='git status'
+alias gitps='git push'
+alias gitpl='git pull'
+alias gitfr='git fetch && git rebase origin/master'
+
+alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
+alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
+
+alias ec=emacsclient
+alias ecd='emacs --daemon'
+alias e=emacs
+alias en='emacs -nw'
+
+alias apt='sudo aptitude'
+alias aptud='sudo aptitude update -y'
+alias aptug='sudo aptitude upgrade -y'
+
+alias sqlr="sudo su - postgres -c 'psql -Urails rails_dev'"
+alias sqlp='sudo su - postgres -c psql'
+
+## console only
+if [ "x$TERM" != "xsun" -a "x$TERM" != "xsun-color" -a "x$TERM" != "xlinux" -a "x$TERM" != "xcygwin" ]; then
+    alias sunview="echo 'only on the console'"
+    alias suntools="echo 'only on the console'"
+    alias xinit="echo 'only on the console'"
+    alias startx="echo 'only on the console'"
+    alias startv="echo 'only on the console'"
+    alias sx="echo 'only on the console'"
+    alias ox="echo 'only on the console'"
+fi

@@ -1,0 +1,101 @@
+. ~/.sh/bash/functions/whence
+. ~/.sh/bash/functions/pathfunctions
+
+if [[ $TERM =~ xterm.* ]]; then
+    [ -z "$HOST" ] && export HOST=$(hostname|cut -d. -f1|tr -s '[:upper:]' '[:lower:]')
+    #eval `resize -u`
+    function settitle() { echo -n "]2; $@ "; }
+    function seticon() { echo -n "]1; $@ "; }
+    function wd_update() { settitle $LOGNAME@$HOST: $PWD; seticon $HOST; }
+    function cd()
+    {
+        if [ -n "$1" ]; then
+            builtin cd "$1"; wd_update
+        else
+            builtin cd; wd_update
+        fi
+    }
+    function pushd() { builtin pushd "$1"; wd_update; }
+    function popd() { builtin popd; wd_update; }
+else
+    unset settitle seticon wd_update cd pushd popd
+fi
+
+printer()
+{
+    if [ ! -z "$1" ]; then
+        export PRINTER=$1
+    fi
+}
+
+zless() { for f in $@; do zcat $f | less; done; }
+mless() { groff -man -Tlatin1 $*|col|less; }
+psg() { ps -eaf|grep $1; }
+
+disp()
+{
+    if [ -z "$2" ]; then
+        export DISPLAY=${1:-$HOST}:0
+    else
+        export DISPLAY=${1:-$HOST}:$2
+    fi
+}
+
+p()
+{
+    proj $1
+    if [ -n "$1" ]; then
+        echo "$1" > ~/.sh/proj.state
+    fi
+}
+
+proj()
+{
+    if [ -n "$1" ]; then
+        case $1 in
+            /*) export PROJECT=$1
+                ;;
+            *) export PROJECT=~/proj/$1
+                ;;
+        esac
+    fi
+    echo PROJECT=$PROJECT
+}
+
+cdp()
+{
+    if [ -n "$PROJECT" ]; then
+        cd $PROJECT
+    else
+        cd ~/proj
+    fi
+}
+
+cds()
+{
+    if [ -n "$PROJECT" ]; then
+        cd $PROJECT/src
+    else
+        cd ~/proj
+    fi
+}
+
+cdc()
+{
+    if [ -n "$PROJECT" ]; then
+        cd $PROJECT/src/classes
+    else
+        cd ~/proj
+    fi
+}
+
+r()
+{
+    if bundle 2>&1 >/dev/null; then
+        #echo -n "bundle exec rake $@"
+        bundle exec rake "$@"
+    else
+        #echo -n "rake $@"
+        rake "$@"
+    fi
+}
