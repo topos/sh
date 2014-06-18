@@ -21,13 +21,6 @@ else
     unset settitle seticon wd_update cd pushd popd
 fi
 
-printer()
-{
-    if [ ! -z "$1" ]; then
-        export PRINTER=$1
-    fi
-}
-
 zless() { for f in $@; do zcat $f | less; done; }
 mless() { groff -man -Tlatin1 $*|col|less; }
 psg() { ps -eaf|grep $1; }
@@ -64,6 +57,7 @@ proj()
 
 cdp()
 {
+    if [ -n "$1" ]; then proj $1; fi   
     if [ -n "$PROJECT" ]; then
         cd $PROJECT
     else
