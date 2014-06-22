@@ -4,16 +4,17 @@
 if [[ $TERM =~ xterm.* ]]; then
     [ -z "$HOST" ] && export HOST=$(hostname|cut -d. -f1|tr -s '[:upper:]' '[:lower:]')
     #eval `resize -u`
-    function settitle() { echo -n "]2; $@ "; }
     function seticon() { echo -n "]1; $@ "; }
+    function settitle() { echo -n "]2; $@ "; }
     function wd_update() { settitle $LOGNAME@$HOST: $PWD; seticon $HOST; }
     function cd()
     {
-        if [ -n "$1" ]; then
-            builtin cd "$1"; wd_update
-        else
-            builtin cd; wd_update
+        if [ -n "$1" ]; then 
+            builtin cd "$1" 
+        else 
+            builtin cd
         fi
+        if [ -n "$COLORTERM" ]; then wd_update; fi
     }
     function pushd() { builtin pushd "$1"; wd_update; }
     function popd() { builtin popd; wd_update; }
