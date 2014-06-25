@@ -1,2 +1,6 @@
-export PATH=~/bin:~/.cabal/bin:/opt/ghc/bin:/opt/mesos/bin:/opt/mesos/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+if [ "$(uname -s)" = "Darwin" ]; then
+    PATH=~/bin:~/.cabal/bin:/opt/ghc/bin:/opt/mesos/bin:/opt/mesos/sbin:/usr/local/bin:/usr/bin:/bin:/usr/X11/bin:/usr/sbin:/sbin    
+else
+    PATH=~/bin:~/.cabal/bin:/opt/ghc/bin:/opt/mesos/bin:/opt/mesos/sbin:/usr/local/bin:/usr/bin:/bin:/usr/X11/bin:/usr/sbin:/sbin
+fi
 export MANPATH=/opt/ghc/bin:/usr/local/man:/usr/share/man

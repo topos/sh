@@ -1,15 +1,8 @@
 export LANG=en_US.UTF-8
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-export LESS='-R'
+export LESS='-RX'
 #eval `dircolors -b ~/.dir_colors`
 export LS_COLORS='no=00:fi=00:di=00;34:ln=01;32:pi=40;33:so=00;35:do=00;35:bd=00;37:cd=00;37:or=40;31;01:*#=00;31:*~=00;31:ex=00;32:*.c=00;36:*.cc=00;36:*.cpp=00;36:*.cxx=00;36:*.C=00;36:*.java=00;36:*Makefile=00;35:*makefile=00;35:*build.xml=00;35:*.tar=00:*.tgz=00:*.arj=00:*.taz=00:*.lzh=00:*.zip=00:*.z=00:*.Z=00:*.gz=00:*.bz2=00:*.deb=00:*.rpm=00:*.jpg=00;35:*.png=00;35:*.gif=00;35:*.bmp=00;35:*.ppm=00;35:*.tga=00;35:*.xbm=00;35:*.xpm=00;35:*.tif=00;35:*.png=00;35:*.mpg=00;35:*.avi=00;35:*.fli=00;35:*.gl=00;35:*.dl=00;35:'
 
-export TERMINFO=~/.terminfo
-
-export AWS_ACCESS_KEY=AKIAJOAZW6Z3533DHQPA
-export AWS_SECRET_KEY=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
-export AWS_SSH_KEY=~/proj/aws/etc/credentials/cfn-docukey.pem
-
-export WPA_PSK='Jasper,Sasha,andZoe'
-
+#export TERMINFO=~/.terminfo
 export TERM=xterm-256color

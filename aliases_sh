@@ -15,7 +15,6 @@ alias brs='bundle exec rspec'
 alias b=buildr
 alias pp=popd
 alias pd=pushd
-alias less='less -R'
 
 alias gita='git add'
 alias gitb='git branch'
@@ -30,8 +29,14 @@ alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
 
 alias ec=emacsclient
 alias ecd='emacs --daemon'
-alias e=emacs
-alias en='emacs -nw'
+
+if [ $(uname -s) = "Darwin" ]; then
+   alias e=/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs
+   alias en=emacs
+else
+   alias e=emacs
+   alias en='emacs -nw'
+fi
 
 alias apt='sudo aptitude'
 alias aptup='sudo aptitude update -y && sudo aptitude upgrade -y'
