@@ -38,9 +38,6 @@ else
    alias en='emacs -nw'
 fi
 
-alias apt='sudo aptitude'
-alias aptup='sudo aptitude update -y && sudo aptitude upgrade -y'
-
 alias sqlr="sudo su - postgres -c 'psql -Urails rails_dev'"
 alias sqlp='sudo su - postgres -c psql'
 
