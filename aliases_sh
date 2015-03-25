@@ -16,12 +16,8 @@ alias b=buildr
 alias pp=popd
 alias pd=pushd
 
-alias gita='git add'
-alias gitb='git branch'
-alias gitc='git commit -m'
 alias gits='git status'
-alias gitps='git push'
-alias gitpl='git pull'
+alias gitd=~/bin/gdiff
 alias gitfr='git fetch && git rebase origin/master'
 
 alias burn-cd='wodim -v dev=/dev/cdrom speed=4'

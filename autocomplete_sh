@@ -1,0 +1,9 @@
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+DISTRO=$(lsb_release --id | awk '{print $NF}')
+if [ "Ubuntu" == "$DISTRO" ]; then
+   for i in ~/.sh/autocomplete/*; do
+        . $i
+   done
+fi

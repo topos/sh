@@ -75,15 +75,6 @@ cds()
     fi
 }
 
-cdc()
-{
-    if [ -n "$PROJECT" ]; then
-        cd $PROJECT/src/classes
-    else
-        cd ~/proj
-    fi
-}
-
 r()
 {
     if bundle 2>&1 >/dev/null; then
