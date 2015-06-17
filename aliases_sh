@@ -1,4 +1,4 @@
-alias ls='ls -G --color=auto'
+alias ls='ls --color'
 alias l=ls
 alias ll='ls -l'
 alias ltr='ls -ltr'
@@ -16,8 +16,9 @@ alias b=buildr
 alias pp=popd
 alias pd=pushd
 
+alias g='git'
 alias gits='git status'
-alias gitd=~/bin/gdiff
+alias gitd='git difftool -y'
 alias gitfr='git fetch && git rebase origin/master'
 
 alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
@@ -26,9 +27,9 @@ alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
 alias ec=emacsclient
 alias ecd='emacs --daemon'
 
-if [ $(uname -s) = "Darwin" ]; then
-   alias e=/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs
-   alias en=emacs
+if [ "$(uname -s)" = "Darwin" ]; then
+   alias e=Emacs
+   alias en='Emacs -nw'
 else
    alias e=emacs
    alias en='emacs -nw'
