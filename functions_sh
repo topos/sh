@@ -35,6 +35,19 @@ disp()
     fi
 }
 
+proj()
+{
+    if [ -n "$1" ]; then
+        case $1 in
+            /*) export PROJECT=$1
+                ;;
+            *) export PROJECT=~/proj/$1
+                ;;
+        esac
+    fi
+    echo PROJECT=$PROJECT
+}
+
 cdp()
 {
     if [ -n "$1" ]; then proj $1; fi   
@@ -68,6 +81,7 @@ awsp()
     if [ -n "$1" ]; then 
         export AWS_DEFAULT_PROFILE=$1
     else
+        echo "AWS_DEFAULT_PROFILE=$AWS_DEFAULT_PROFILE"
         echo "aws regions:"
         egrep '^\[profile ' ~/.aws/config | awk '{print $2}' | sed 's/\]//1'
     fi
