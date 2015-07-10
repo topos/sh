@@ -14,7 +14,7 @@ if [[ $TERM =~ xterm.* ]]; then
         else 
             builtin cd
         fi
-        if [ -n "$COLORTERM" ]; then wd_update; fi
+        wd_update
     }
     function pushd() { builtin pushd "$1"; wd_update; }
     function popd() { builtin popd; wd_update; }
@@ -32,14 +32,6 @@ disp()
         export DISPLAY=${1:-$HOST}:0
     else
         export DISPLAY=${1:-$HOST}:$2
-    fi
-}
-
-p()
-{
-    proj $1
-    if [ -n "$1" ]; then
-        echo "$1" > ~/.sh/proj.state
     fi
 }
 
@@ -78,10 +70,19 @@ cds()
 r()
 {
     if bundle 2>&1 >/dev/null; then
-        #echo -n "bundle exec rake $@"
         bundle exec rake "$@"
     else
-        #echo -n "rake $@"
         rake "$@"
+    fi
+}
+
+awsp()
+{
+    if [ -n "$1" ]; then 
+        export AWS_DEFAULT_PROFILE=$1
+    else
+        echo "AWS_DEFAULT_PROFILE=$AWS_DEFAULT_PROFILE"
+        echo "aws regions:"
+        egrep '^\[profile ' ~/.aws/config | awk '{print $2}' | sed 's/\]//1'
     fi
 }

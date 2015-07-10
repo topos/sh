@@ -1,6 +1,6 @@
 if [ "$(uname -s)" = "Darwin" ]; then
     PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11/bin:/usr/sbin:/sbin
 else
-    PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11/bin:/usr/sbin:/sbin
+    PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 fi
     

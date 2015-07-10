@@ -1,4 +1,4 @@
-alias ls='ls -G --color=auto'
+alias ls='ls --color'
 alias l=ls
 alias ll='ls -l'
 alias ltr='ls -ltr'
@@ -9,16 +9,17 @@ alias pwd='echo $PWD'
 alias rme="find ./ -type f \( -name \*~ -o -name \*.~[0-9]~ -o -name '#*#' -o -name semantic.cache \) | xargs rm -f"
 
 alias s=sudo
-#alias r=rake
-alias br='bundle exec rake'
-alias brs='bundle exec rspec'
-alias b=buildr
 alias pp=popd
 alias pd=pushd
+alias sysc='sudo systemctl'
 
+alias g=git
 alias gits='git status'
-alias gitd=~/bin/diffm
+alias gitd='git difftool -y'
 alias gitfr='git fetch && git rebase origin/master'
+
+alias m=make
+alias c=cabal
 
 alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
 alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
@@ -26,16 +27,13 @@ alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
 alias ec=emacsclient
 alias ecd='emacs --daemon'
 
-if [ $(uname -s) = "Darwin" ]; then
-   alias e=/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs
-   alias en=emacs
+if [ "$(uname -s)" = "Darwin" ]; then
+   alias e=Emacs
+   alias en='Emacs -nw'
 else
    alias e=emacs
    alias en='emacs -nw'
 fi
-
-alias sqlr="sudo su - postgres -c 'psql -Urails rails_dev'"
-alias sqlp='sudo su - postgres -c psql'
 
 ## console only
 if [ "x$TERM" != "xsun" -a "x$TERM" != "xsun-color" -a "x$TERM" != "xlinux" -a "x$TERM" != "xcygwin" ]; then
