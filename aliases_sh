@@ -17,7 +17,7 @@ alias pp=popd
 alias pd=pushd
 
 alias gits='git status'
-alias gitd=~/bin/gdiff
+alias gitd=~/bin/diffm
 alias gitfr='git fetch && git rebase origin/master'
 
 alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
