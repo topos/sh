@@ -9,9 +9,9 @@ if [[ $TERM =~ xterm.* ]]; then
     function wd_update() { settitle $LOGNAME@$HOST: $PWD; seticon $HOST; }
     function cd()
     {
-        if [ -n "$1" ]; then 
-            builtin cd "$1" 
-        else 
+        if [ -n "$1" ]; then
+            builtin cd "$1"
+        else
             builtin cd
         fi
         wd_update
@@ -50,7 +50,7 @@ proj()
 
 cdp()
 {
-    if [ -n "$1" ]; then proj $1; fi   
+    if [ -n "$1" ]; then proj $1; fi
     if [ -n "$PROJECT" ]; then
         cd $PROJECT
     else
@@ -58,12 +58,21 @@ cdp()
     fi
 }
 
-cds()
+cdps()
 {
     if [ -n "$PROJECT" ]; then
         cd $PROJECT/src
     else
         cd ~/proj
+    fi
+}
+
+cds()
+{
+    if [ -n "$1" ]; then
+        cd ~ml/src/$1
+    else
+        cd ~ml/src
     fi
 }
 
@@ -78,7 +87,7 @@ r()
 
 awsp()
 {
-    if [ -n "$1" ]; then 
+    if [ -n "$1" ]; then
         export AWS_DEFAULT_PROFILE=$1
     else
         echo "AWS_DEFAULT_PROFILE=$AWS_DEFAULT_PROFILE"
