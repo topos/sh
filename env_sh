@@ -2,3 +2,4 @@ export LANG=en_US.UTF-8
 export LESSOPEN="|.sh/lessfilter %s"
 export LESS='-R'
 export TERM=xterm-256color
+[ "$(uname -s)" != "Darwin" ] || export CLICOLOR=1
