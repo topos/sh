@@ -1,6 +1,4 @@
-if [ "$(uname -s)" != "Darwin" ]; then
-   alias ls='ls --color'
-fi
+[ "$(uname -s)" = "Darwin" ] || alias ls='ls --color'
 alias l=ls
 alias ll='ls -l'
 alias ltr='ls -ltr'
@@ -10,6 +8,7 @@ alias pwd='echo $PWD'
 #alias rme='rm -f *.~*~ *~'
 alias rme="find ./ -type f \( -name \*~ -o -name \*.~[0-9]~ -o -name '#*#' -o -name semantic.cache \) | xargs rm -f"
 
+alias k=stack
 alias s=sudo
 alias pp=popd
 alias pd=pushd
@@ -22,6 +21,7 @@ alias gitfr='git fetch && git rebase origin/master'
 
 alias m=make
 alias c=cabal
+alias q='rlwrap -c -r /opt/q/l32/q'
 
 alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
 alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
