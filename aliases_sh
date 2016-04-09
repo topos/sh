@@ -8,26 +8,20 @@ alias pwd='echo $PWD'
 #alias rme='rm -f *.~*~ *~'
 alias rme="find ./ -type f \( -name \*~ -o -name \*.~[0-9]~ -o -name '#*#' -o -name semantic.cache \) | xargs rm -f"
 
-alias k=stack
-alias s=sudo
-alias pp=popd
-alias pd=pushd
-alias sysc='sudo systemctl'
-
-alias g=git
-alias gits='git status'
-alias gitd='git difftool -y'
-alias gitfr='git fetch && git rebase origin/master'
-
-alias m=make
-alias c=cabal
-alias q='rlwrap -c -r /opt/q/l32/q'
-
-alias burn-cd='wodim -v dev=/dev/cdrom speed=4'
-alias burn-dvd='wodim -v dev=/dev/dvd speed=4'
-
+alias d=dockers
 alias ec=emacsclient
 alias ecd='emacs --daemon'
+alias g=git
+alias gitd='git difftool -y'
+alias gitfr='git fetch && git rebase origin/master'
+alias gits='git status'
+alias k=stack
+alias m=make
+alias pd=pushd
+alias pp=popd
+alias q='rlwrap -c -r /opt/q/l32/q'
+alias s=sudo
+alias sysc='sudo systemctl'
 
 if [ "$(uname -s)" = "Darwin" ]; then
    alias e=Emacs
