@@ -8,7 +8,7 @@ alias pwd='echo $PWD'
 #alias rme='rm -f *.~*~ *~'
 alias rme="find ./ -type f \( -name \*~ -o -name \*.~[0-9]~ -o -name '#*#' -o -name semantic.cache \) | xargs rm -f"
 
-alias d=dockers
+alias d=docker
 alias ec=emacsclient
 alias ecd='emacs --daemon'
 alias g=git
