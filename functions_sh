@@ -67,12 +67,27 @@ cdps()
     fi
 }
 
-cds()
+
+src()
 {
     if [ -n "$1" ]; then
-        cd ~ml/src/$1
+        case $1 in
+            /*) export SOURCE=$1
+                ;;
+            *) export SOURCE=~/src/$1
+                ;;
+        esac
+    fi
+    echo SOURCE=$SOURCE
+}
+
+cds()
+{
+    if [ -n "$1" ]; then src $1; fi
+    if [ -n "$SOURCE" ]; then
+        cd $SOURCE
     else
-        cd ~ml/src
+        cd ~/src
     fi
 }
 
