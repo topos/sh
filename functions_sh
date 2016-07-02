@@ -39,10 +39,8 @@ proj()
 {
     if [ -n "$1" ]; then
         case $1 in
-            /*) export PROJECT=$1
-                ;;
-            *) export PROJECT=~/proj/$1
-                ;;
+            /*) export PROJECT=$1 ;;
+            *) export PROJECT=~/proj/$1 ;;
         esac
     fi
     echo PROJECT=$PROJECT
